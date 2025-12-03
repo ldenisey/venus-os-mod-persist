@@ -1,4 +1,4 @@
-# mod-persist
+# Venus OS modification persistence scripts
 
 During Venus OS firmware upgrades everything is wiped except the */data/* folder. Meaning any package, file or configuration you add to your Venus OS device is lost.
 
