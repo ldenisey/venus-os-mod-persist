@@ -8,7 +8,7 @@ In order to avoid manual reinstallation at each ugrade, you can use mod-persist.
 ## Installation
 
 ``` bash
-opkg install https://github.com/ldenisey/venus-os-configuration/raw/refs/heads/main/feed/mod-persist_1.0.0_all.ipk
+opkg install https://github.com/ldenisey/venus-os-configuration/raw/refs/heads/main/feed/mod-persist_1.0.1_all.ipk
 ```
 
 

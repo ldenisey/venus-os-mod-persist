@@ -9,28 +9,7 @@ if [ -z "$D" ]; then
   if ! grep -q "/data/opt/mod-persist/boot.sh" /data/rc.local; then
     echo "/data/opt/mod-persist/boot.sh" >> /data/rc.local
   fi
-  
-  # Init conf folder
-  mkdir -p /data/etc/mod-persist
-  
-  # Init files list file
-  PERSISTED_FILES_LIST_PATH="/data/etc/mod-persist/persisted_files.conf"
-  touch "$PERSISTED_FILES_LIST_PATH"
-  
-  # Init patches list file
-  PERSISTED_PATCHES_LIST_PATH="/data/etc/mod-persist/persisted_patches.conf"
-  touch "$PERSISTED_PATCHES_LIST_PATH"
-  
-  # Init package list file
-  PERSISTED_PKGS_LIST_PATH="/data/etc/mod-persist/persisted_opkg_pkgs.conf"
-  touch "$PERSISTED_PKGS_LIST_PATH"
-  
-  # Init feed list file
-  PERSISTED_FEEDS_LIST_PATH="/data/etc/mod-persist/persisted_opkg_feeds.conf"
-  touch "$PERSISTED_FEEDS_LIST_PATH"
-  VENUS_OS_CONF_FEED="src/gz venus-os-configuration https://github.com/ldenisey/venus-os-configuration/raw/refs/heads/main/feed"
-  if ! grep -q "$VENUS_OS_CONF_FEED" "$PERSISTED_FEEDS_LIST_PATH"; then
-    echo "$VENUS_OS_CONF_FEED" >> "$PERSISTED_FEEDS_LIST_PATH"
-  fi
-  ln -sf "$PERSISTED_FEEDS_LIST_PATH" /etc/opkg/persisted_feeds.conf
+
+  # Link feeds file
+  ln -sf /data/etc/mod-persist/persisted_opkg_feeds.conf /etc/opkg/persisted_feeds.conf
 fi

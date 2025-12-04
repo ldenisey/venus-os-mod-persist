@@ -1,0 +1,4 @@
+/data/etc/mod-persist/persisted_opkg_pkgs.conf
+/data/etc/mod-persist/persisted_opkg_feeds.conf
+/data/etc/mod-persist/persisted_files.conf
+/data/etc/mod-persist/persisted_patches.conf
