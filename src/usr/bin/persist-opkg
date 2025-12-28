@@ -9,7 +9,7 @@ help() {
   echo "  list : list persisted feeds and packages"
   echo "  install <pkgs> : persist <pkgs> and install it/them if needed"
   echo "  remove <pkgs> : unpersist <pkgs> and uninstall it/them if needed"
-  echo "  status <pkgs> : show <pkgs> availability, persistence and installation status"
+  echo "  status [pkgs] : show all or <pkgs> availability, persistence and installation status"
   echo "  apply : check and reinstall persisted packages if needed"
   echo "  install-feed <name> <url> : add <name> to the list of persisted feeds"
   echo "  remove-feed <name> : remove <name> from the list of persisted feeds"
@@ -271,7 +271,11 @@ case "$1" in
   ;;
   
   status)
-    pkgs=$(parse_pkgs "$@") || exit $?
+    if [ "$#" -eq 1 ]; then
+      pkgs=$(cat "$PERSISTED_PKGS_LIST_PATH")
+    else
+      pkgs=$(parse_pkgs "$@") || exit $?
+    fi
     for pkg in $pkgs; do
       status "$pkg"
     done

@@ -24,6 +24,9 @@ To remove a feed : `persist-opkg remove-feed <name>`
 
 To get the list of persisted feeds and packages : `persist-opkg list`
 
+To get the installation status of all persisted packages : `persist-opkg status`
+To get the installation status of one or several packages : `persist-opkg status package1 package2`
+
 For other commands and more explanation : `persist-opkg help`
 
 ### persist-file script
